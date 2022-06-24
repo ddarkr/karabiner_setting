@@ -1,0 +1,169 @@
+{
+	"title": "Kor-Eng-Hanja (Customized)",
+	"rules": [
+		{
+			"description": "R_Option를 한영 전환",
+			"manipulators": [
+				{
+					"type": "basic",
+					"conditions": [
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers": [
+								"com.parallels.desktop",
+								"com.parallels.vm",
+								"com.parallels.desktop.console",
+								"com.parallels.winapp.",
+								"com.microsoft.rdc.macos"
+							]
+						},
+						{
+							"type": "device_if",
+							"identifiers": [
+								{
+									"vendor_id": 594,
+									"product_id": 1452
+								}
+							]
+					}
+					],
+					"from": { 
+						"key_code": "right_command",
+						"modifiers": { "optional": [ "caps_lock", "right_option" ] }
+					},
+					"to": [ { "key_code": "right_option" } ]
+				},
+				{ 
+      		"type": "basic",
+      		"conditions": [
+      			{
+      				"type": "frontmost_application_unless",
+      				"bundle_identifiers": [
+      					"com.parallels.desktop",
+      					"com.parallels.vm",
+								"com.parallels.desktop.console",
+								"com.parallels.winapp.",
+								"com.microsoft.rdc.macos"
+							]
+						}
+					],
+        	"from": { 
+        		"key_code": "right_option"
+        	},
+          "to": [
+          	{
+          		"key_code": "spacebar",
+          		"modifiers": [
+          			"left_control",
+          			"left_option"
+          		]
+          	}
+          ]
+        }
+			]
+		},
+		{
+			"description": "R_Command를 한영 전환",
+			"manipulators": [
+				{
+					"type": "basic",
+					"conditions": [
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers": [
+								"com.apple.universalcontrol"
+							]
+						}
+					],
+					"from": { 
+						"key_code": "right_command"
+					},
+					"to": [ { "key_code": "caps_lock" } ]
+				},
+				{
+					"type": "basic",
+					"conditions": [
+						{
+							"type": "frontmost_application_if",
+							"bundle_identifiers": [
+								"com.parallels.desktop",
+								"com.parallels.vm",
+								"com.parallels.desktop.console",
+								"com.parallels.winapp.",
+								"com.microsoft.rdc.macos"
+							]
+						}
+					],
+					"from": {
+						"key_code": "right_command",
+						"modifiers": { "optional": [ "caps_lock", "right_option" ] }
+					},
+					"to": [ { "key_code": "right_option" } ]
+				},
+				{ 
+      		"type": "basic",
+      		"conditions": [
+      			{
+      				"type": "frontmost_application_unless",
+      				"bundle_identifiers": [
+      					"com.parallels.desktop",
+      					"com.parallels.vm",
+								"com.parallels.desktop.console",
+								"com.parallels.winapp.",
+								"com.microsoft.rdc.macos",
+								"com.apple.universalcontrol"
+							]
+						}
+					],
+        	"from": { 
+        		"key_code": "right_command",
+        		"modifiers": { "optional": [ "caps_lock", "right_option" ] }
+        	},
+          "to": [
+          	{
+          		"key_code": "spacebar",
+          		"modifiers": [
+          			"left_control",
+          			"left_option"
+          		]
+          	}
+          ]
+        }
+			]
+		},
+		{
+			"description": "Caps-Lock으로 한영 전환",
+			"manipulators": [
+				{ 
+      		"type": "basic",
+      		"conditions": [
+      			{
+      				"type": "frontmost_application_unless",
+      				"bundle_identifiers": [
+      					"com.parallels.desktop",
+      					"com.parallels.vm",
+								"com.parallels.desktop.console",
+								"com.parallels.winapp.",
+								"com.microsoft.rdc.macos",
+								"com.apple.universalcontrol"
+							]
+						}
+					],
+        	"from": { 
+        		"key_code": "caps_lock"
+        	},
+          "to": [
+          	{
+          		"key_code": "spacebar",
+          		"modifiers": [
+          			"left_control",
+          			"left_option"
+          		]
+          	}
+          ]
+        }
+			]
+		}
+		
+	]
+}
